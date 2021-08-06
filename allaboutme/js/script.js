@@ -1,41 +1,38 @@
 "use strict";
 
-// do you want to keep going
+let key = true;
 
-$(`#dywtkg`).on(`mouseenter`, function (event) {
-  $(this).attr(`src`, `assets/images/pencil.gif`)
-});
+let configs = [
+  {
+    id: `#dywtkg`,
+    gif: `assets/images/pencil.gif`,
+    png: `assets/images/apple.png`
+  }, {
+    id: `#tmm`,
+    gif: `assets/images/tmm.gif`,
+    png: `assets/images/tmm.png`
+  }, {
+    id: `#lp`,
+    gif: `assets/images/planet.gif`,
+    png: `assets/images/planetemblem.png`
+  }, {
+    id: `#hiis`,
+    gif: `assets/images/crazydoor.gif`,
+    png: `assets/images/regulardoor.png`
+  }
+]
 
-$(`#dywtkg`).on(`mouseleave`, function (event) {
-  $(this).attr(`src`, `assets/images/apple.png`)
-});
+function displayGIF(config) {
+  $(config.id).on(`mouseenter`, function (event) {
+    $(this).attr(`src`, config.gif)
+  });
 
-// the murder mystery
+  $(config.id).on(`mouseleave`, function (event) {
+    $(this).attr(`src`, config.png);
+  });
+}
 
-$(`#tmm`).on(`mouseenter`, function (event) {
-  $(this).attr(`src`, `assets/images/tmm.gif`)
-});
-
-$(`#tmm`).on(`mouseleave`, function (event) {
-  $(this).attr(`src`, `assets/images/tmm.png`)
-});
-
-// lonely planet
-
-$(`#lp`).on(`mouseenter`, function (event) {
-  $(this).attr(`src`, `assets/images/planet.gif`)
-});
-
-$(`#lp`).on(`mouseleave`, function (event) {
-  $(this).attr(`src`, `assets/images/planetemblem.png`)
-});
-
-// how it isn't so
-
-$(`#hiis`).on(`mouseenter`, function (event) {
-  $(this).attr(`src`, `assets/images/crazydoor.gif`)
-});
-
-$(`#hiis`).on(`mouseleave`, function (event) {
-  $(this).attr(`src`, `assets/images/regulardoor.png`)
-});
+for (let i = 0; i < configs.length; i++) {
+  let config = configs[i];
+  displayGIF(config);
+}
